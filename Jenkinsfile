@@ -12,5 +12,9 @@ node('linux'){
         sh 'ant -f build.xml -v'
     } 
     
+    stage('Deploy'){
+        sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle-${BUILD_NUMBER}.jar s3://jhpark1-assignment-4'
+    }
+    
 }
 
