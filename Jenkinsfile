@@ -2,15 +2,16 @@ properties([pipelineTriggers([githubPush()])])
 
 node('linux'){
     stage('Unit Tests'){
-        sh "ant -f test.xml -v"
+        git 'https://github.com/jnghn1/java-project.git'
+        sh "ant"
     }
     
     stage('Build'){
-        sh "ant -buildfile test.xml"
+        sh "ant"
     }
     
     stage('Deploy'){
-        sh "ant -buildfile test.xml"
+        sh "ant"
     }
     
     stage('Reports'){
