@@ -10,4 +10,8 @@ node('linux'){
     stage('Build'){
         sh 'ant -f build.xml -v'
     }    
+    
+    stage('Deploy'){
+        sh 'aws s3 cp rectangle-${BUILD_NUMBER}.jar s3://jhpark1-assignment-4'
+    }
 }
