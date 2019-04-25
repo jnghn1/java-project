@@ -12,9 +12,6 @@ node('linux'){
         sh 'ant -f build.xml -v'
     }    
 
-    stage('Deploy'){
-        sh 'ant -f rectangle-${BUILD_NUMBER}.jar -v'
-        sh 'aws s3 cp rectangle-${BUILD_NUMBER}.jar s3://jhpark1-assignment-4'
-    }    
+
 
 }
